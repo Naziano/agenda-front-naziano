@@ -1,3 +1,4 @@
+import { ContatoService } from './contato.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -19,8 +20,11 @@ export class AppComponent {
 
   contatos = [];
 
+  constructor(private service: ContatoService) {}
+
 
   salvar(formContato: NgForm) {
+    /*
     this.contato.id = ++this.ultimoId;
     this.contato.nome = formContato.value.nome;
     this.contato.fone = formContato.value.fone;
@@ -28,6 +32,8 @@ export class AppComponent {
     this.contatos.push(this.contato);
 
     this.contato = new Contato();
+    */
+    console.log(this.service.buscaTodos());
   }
 
   editar(id: number) {
